@@ -10,8 +10,36 @@
     
       <li class="nav-item">
       <%= link_to "About", home_about_path, class: "nav-link" %>
-      </li>
+      </li>    
+      <% if user_signed_in? %>
 
+        <li class="nav-item">
+        <%= link_to "Edit profil", edit_user_registration_path, class: "nav-link" %>
+         <li class="nav-item">
+        <%= link_to "Show  stocks", edit_user_registration_path, class: "nav-link" %>
+         <li class="nav-item">
+        <%= link_to "add stocks", new_stock_path, class: "nav-link" %>
+
+       <li class="nav-item">
+      <%= link_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+       </li>
+      </li>
+      <% else %>
+        <li class="nav-item">
+       <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+      <%= link_to "login", new_user_session_path, class: "nav-link" %>
+      </li>
+      <% end %>
+
+      <li class="nav-item">
+      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+      <%= link_to "login", new_user_session_path, class: "nav-link" %>
+      </li>
+      
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
